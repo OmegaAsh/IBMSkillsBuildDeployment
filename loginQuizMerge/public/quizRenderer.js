@@ -107,26 +107,26 @@ async function loadQuestion(questionNum) {
       } else {
         if (quizData.title === "Artificial Intelligence") {
           userInfo.aiComplete = correct;
-          course = "AI";
+          course = "Artificial Intelligence";
         } else if (quizData.title === "IBM Cloud") {
           userInfo.cloudComplete = correct;
-          course = "CLOUD";
+          course = "Cloud";
           
         } else if (quizData.title === "Data Science") {
           userInfo.dsComplete = correct;
-          course = "DS";
+          course = "Data Science";
 
         } else if (quizData.title === "Engineering") {
           userInfo.engiComplete = correct;
-          course = "ENGI";
+          course = "Engineering";
 
         } else if (quizData.title === "Quantum") {
           userInfo.quantumComplete = correct;
-          course = "QTM";
+          course = "Quantum";
 
         } else if (quizData.title === "Cyber Security") {
           userInfo.securityComplete = correct;
-          course = "SEC";
+          course = "Security";
 
         }
   
