@@ -110,49 +110,48 @@ if (signupInfo) {
 // toggle modal form when submit button is clicked
 var modal = document.getElementById("modalSignup");	
 
-if (modal) {
 
-	const signupUpdate = document.getElementById("signupUpdate");
-	if (signupUpdate) {
-		signupUpdate.addEventListener("submit", async function (event) {
-		event.preventDefault();
-	
-		const params = {
-			"name" : document.getElementById("name").value,
-			"email" : document.getElementById("email").value,
-			"psw" : document.getElementById("psw").value,
-			"course" : document.getElementById("course").value,
-			"year" : document.getElementById("year").value,
-			"interest" : document.getElementById("interest").value,
-		};
-		const options = {
-			method: 'POST',
-			body: JSON.stringify(params),
-			headers: { 'Content-Type': 'application/json' }
-		};
-	
-		const new_user_resp = await sendRequest("/newUser", options);
-		const new_user = await new_user_resp.json();
-	
-		// check user data is handled correctly, if not ask user to retry
-		if (new_user) {
-			if (new_user["status"] === "verified") {
-				location.assign("/");
-			}
-			if (new_user["status"] === "duplicate") {
-				alert("Email is already in use!");
-				location.assign("/");
-			}
-			if (new_user["status"] === "error") {
-				alert("Unable to create your account at the current time. Please try again later");
-				location.assign("/");
-			}
+const signupUpdate = document.getElementById("signupUpdate");
+if (signupUpdate) {
+	signupUpdate.addEventListener("submit", async function (event) {
+	event.preventDefault();
+
+	const params = {
+		"name" : document.getElementById("name").value,
+		"email" : document.getElementById("email").value,
+		"psw" : document.getElementById("psw").value,
+		"course" : document.getElementById("course").value,
+		"year" : document.getElementById("year").value,
+		"interest" : document.getElementById("interest").value,
+	};
+	const options = {
+		method: 'POST',
+		body: JSON.stringify(params),
+		headers: { 'Content-Type': 'application/json' }
+	};
+
+	const new_user_resp = await sendRequest("/newUser", options);
+	const new_user = await new_user_resp.json();
+
+	// check user data is handled correctly, if not ask user to retry
+	if (new_user) {
+		if (new_user["status"] === "verified") {
+			location.assign("/");
 		}
-		});
+		if (new_user["status"] === "duplicate") {
+			alert("Email is already in use!");
+			location.assign("/");
+		}
+		if (new_user["status"] === "error") {
+			alert("Unable to create your account at the current time. Please try again later");
+			location.assign("/");
+		}
 	}
-	
-	
+	});
 }
+	
+	
+
 
 
 
