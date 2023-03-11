@@ -160,6 +160,7 @@ signupInfo.addEventListener('submit', async function (event) {
 
 
 const loginInfo = document.getElementById("signinInfo");
+try{
 loginInfo.addEventListener("submit", async function (event) {
 	event.preventDefault();
 	const username = document.getElementById("username").value;
@@ -193,6 +194,9 @@ loginInfo.addEventListener("submit", async function (event) {
 	if (verification["status"] === "verified") {
 		location.assign(`/quizSelection?email=${username}`);
 			
-}});
+}})}
+catch (error){
+	console.log(error)
+};
 
 // module.exports = { email };

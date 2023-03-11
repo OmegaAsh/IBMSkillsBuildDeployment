@@ -104,5 +104,7 @@ const quizData = {
       ],
     }];
 
-  
-  module.exports = { quizData, questions };
+  try{
+    module.exports = { quizData, questions };
+  } catch (error) {
+  }
