@@ -178,8 +178,7 @@ loginInfo.addEventListener("submit", async function (event) {
 		body: JSON.stringify(login),
 		headers: { 'Content-Type': 'application/json' }
 	}
-	const login_resp = await sendRequest("https://0.0.0.0:3000/login", options);
-
+	const login_resp = await sendRequest("http://127.0.0.1:3000/login", options);
 
 	// Check response, if verified, redirect to homepage, else deny
 	const verification = await login_resp.json();

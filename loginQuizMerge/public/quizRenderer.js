@@ -98,7 +98,7 @@ async function loadQuestion(questionNum) {
         headers: { "Content-Type": "application/json" },
       };
 
-      const userBoom = await fetch(`https://0.0.0.0:3000/getRecord?email=${email}`,options);
+      const userBoom = await fetch(`http://127.0.0.1:3000/getRecord?email=${email}`,options);
       const userInfo = await userBoom.json();
 
       if (userInfo === 404) {
@@ -126,7 +126,7 @@ async function loadQuestion(questionNum) {
           headers: { "Content-Type": "application/json" },
         };
         const update_Response = await sendRequest(
-          "https://0.0.0.0:3000/updateScore",
+          "http://127.0.0.1:3000/updateScore",
           options2
         );
         
