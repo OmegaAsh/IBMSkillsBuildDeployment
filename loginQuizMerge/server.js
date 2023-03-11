@@ -11,7 +11,7 @@ var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'ibmskillsbuildquiz@gmail.com',
-    pass: 'IBMCloud30'
+    pass: 'ovcyrzbddqeephfc'
   }
 });
 
@@ -143,13 +143,15 @@ app.post("/sendEmail", async (req, res) => {
   var mailOptions = {
     from: 'ibmskillsbuildquiz@gmail.com',
     to: email,
-    subject: `IBM Skills Build ${course} Course Link`,
-    text: `Here is the link for the ${course} course: \n ${course}`
+    subject: `IBM Skills Build ${courseName} Course Link`,
+    text: `${course}`
   };
 
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
       res.send("error");
+      console.log(error)
+
     } else {
       res.send("success");
     }
