@@ -167,6 +167,8 @@ app.post("/login", async (req, res) => {
 
 });
 
+app.get
+
 
 app.post("/updateScore", jsonParser, async (req, res) => {
   try {
