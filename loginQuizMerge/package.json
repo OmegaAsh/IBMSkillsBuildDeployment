@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-quiz-app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "ejs": "3.1.5",
+    "express": "4.17.1",
+    "mongoose": "^7.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "1.18.4"
+  },
+  "keywords": [],
+  "type": "commonjs"
+}

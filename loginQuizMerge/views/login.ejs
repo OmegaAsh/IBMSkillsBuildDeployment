@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <title>IBM Skills Build Login Page</title>
+    <meta charset="UTF-8">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="./loginStyle.css">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap'><link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <div id="modalSignup" class="modal">
+                <div class="container" >
+                    <form id="signupUpdate" action="#" method="get">
+                        <h1>Complete your Profile</h1>
+            
+                        <span>Enter your information</span>
+                        <input type="text" id="course" name="course" placeholder="Course of Study" required/>
+                        <select name="year" id="year" required>
+                            <option hidden selected>Year of Study</option>
+                            <option value="1">First Year</option>
+                            <option value="2">Second Year</option>
+                            <option value="3">Third Year</option>
+                            <option value="4">Fourth Year</option>
+                            <option value="5">Higher</option>
+                          </select>
+                        <input type="text" id="interest" name="interest" placeholder="Field of Interest" required/>
+                        <button type="submit">Submit Personal Information</button>
+                    </form>
+                </div>
+        </div>
+        <div class="form-container sign-up-container">
+            <form id="signupInfo">
+                <h1>Create Account</h1>
+
+                <span>Enter your email for registration</span>
+                <input type="text" id="name" placeholder="Name" required/>
+                <input type="email" id="email" placeholder="Email" required/>
+                <input type="password" name="psw" id="psw" placeholder="Password" required/>
+                <input type="password" name="cpsw" id="cpsw" placeholder="Confirm Password" required/>
+                <input type="checkbox" onclick="pswVis()">Show Password
+                <button type="submit">Sign Up</button>
+            </form>
+            
+        </div>
+        
+        <div class="form-container sign-in-container">
+            <form id="signinInfo">
+                <h1>Sign in</h1>
+                <span>Enter your account</span>
+                <input type="email" id="username" name="username" placeholder="Email" required/>
+                <input type="password" id="password" id="password" placeholder="Password" required/>
+                <a href="#">Forgot your password?</a>
+                <button type="submit">Sign In</button>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>It's good to see you again, buddy. Please sign in here!</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Enter your personal details and start your journey with IBM Skills Build Quiz</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./login.js"></script>
+</body>
+
+</html>
