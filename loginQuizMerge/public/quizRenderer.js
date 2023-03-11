@@ -98,7 +98,7 @@ async function loadQuestion(questionNum) {
         headers: { "Content-Type": "application/json" },
       };
 
-      const userBoom = await fetch(`https://0.0.0.0:3000/getRecord?email=${email}`,options);
+      const userBoom = await fetch(`https://ibm-skills-build-quiz.onrender.com/getRecord?email=${email}`,options);
       const userInfo = await userBoom.json();
 
       if (userInfo === 404) {
@@ -126,7 +126,7 @@ async function loadQuestion(questionNum) {
           headers: { "Content-Type": "application/json" },
         };
         const update_Response = await sendRequest(
-          "https://0.0.0.0:3000/updateScore",
+          "https://ibm-skills-build-quiz.onrender.com/updateScore",
           options2
         );
         
