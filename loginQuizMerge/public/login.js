@@ -56,24 +56,18 @@ const container = document.getElementById('container');
 		
 
 
-try{
+if (signUpButton) {
 	signUpButton.addEventListener('click', () => {
 		container.classList.add("right-panel-active");
 	});
-} catch (error) {
-	console.log(error)
-
 }
+	
 
 
-try {
+if (signInButton) {
 	signInButton.addEventListener('click', () => {
 		container.classList.remove("right-panel-active");
-})} catch (error) {
-	console.log(error)
-
-
-}
+})};
 
 
 //password visibility
@@ -93,9 +87,11 @@ function pswVis() {
 // input handling
 
 // Sign up Form
-try{ 
-	const signupInfo = document.getElementById("signupInfo");
-signupInfo.addEventListener('submit', async function (event) {
+
+const signupInfo = document.getElementById("signupInfo");
+
+if (signupInfo) {
+	signupInfo.addEventListener('submit', async function (event) {
 	event.preventDefault();
 	// check if passwords match
 	const psw = document.getElementById("psw");
@@ -105,18 +101,22 @@ signupInfo.addEventListener('submit', async function (event) {
 		signupInfo.reset();
 		return
 	}
+})
+}
+	
 
 	
 	
-	// toggle modal form when submit button is clicked
-	var modal = document.getElementById("modalSignup");	
+// toggle modal form when submit button is clicked
+var modal = document.getElementById("modalSignup");	
 
-	modal.style.display = "block";
-	
+if (modal) {
+
 	const signupUpdate = document.getElementById("signupUpdate");
-	signupUpdate.addEventListener("submit", async function (event) {
+	if (signupUpdate) {
+		signupUpdate.addEventListener("submit", async function (event) {
 		event.preventDefault();
-
+	
 		const params = {
 			"name" : document.getElementById("name").value,
 			"email" : document.getElementById("email").value,
@@ -130,10 +130,10 @@ signupInfo.addEventListener('submit', async function (event) {
 			body: JSON.stringify(params),
 			headers: { 'Content-Type': 'application/json' }
 		};
-
+	
 		const new_user_resp = await sendRequest("/newUser", options);
 		const new_user = await new_user_resp.json();
-
+	
 		// check user data is handled correctly, if not ask user to retry
 		if (new_user) {
 			if (new_user["status"] === "verified") {
@@ -148,55 +148,56 @@ signupInfo.addEventListener('submit', async function (event) {
 				location.assign("/");
 			}
 		}
-	});
-});
-} catch (error) {
-	console.log(error)
-
+		});
+	}
+	
+	
 }
+
+
+
 
 
 // Sign in Form
 
 
 const loginInfo = document.getElementById("signinInfo");
-try{
-loginInfo.addEventListener("submit", async function (event) {
-	event.preventDefault();
-	const username = document.getElementById("username").value;
-	const password = document.getElementById("password").value;
-	email = username;
-
-	sessionStorage.setItem("email",email);
+if (loginInfo) {
+	loginInfo.addEventListener("submit", async function (event) {
+		event.preventDefault();
+		const username = document.getElementById("username").value;
+		const password = document.getElementById("password").value;
+		email = username;
 	
-	const login = {
-		"email": username,
-		"psw": password,
-	}
+		sessionStorage.setItem("email",email);
+		
+		const login = {
+			"email": username,
+			"psw": password,
+		}
+	
+		const options = {
+			method: 'POST',
+			body: JSON.stringify(login),
+			headers: { 'Content-Type': 'application/json' }
+		}
+		const login_resp = await sendRequest("http://0.0.0.0:3000/login", options);
+	
+		// Check response, if verified, redirect to homepage, else deny
+		const verification = await login_resp.json();
+		if (verification["status"] === "error") {
+			alert("Account doesn't exist. Please sign up");
+			location.assign("/");
+		}
+		if (verification["status"] === "nomatch") {
+			alert("Email or password is incorrect. Try again");
+			location.assign("/");
+		}
+		if (verification["status"] === "verified") {
+			location.assign(`/quizSelection?email=${username}`);
+				
+	}})
+}
 
-	const options = {
-		method: 'POST',
-		body: JSON.stringify(login),
-		headers: { 'Content-Type': 'application/json' }
-	}
-	const login_resp = await sendRequest("http://127.0.0.1:3000/login", options);
-
-	// Check response, if verified, redirect to homepage, else deny
-	const verification = await login_resp.json();
-	if (verification["status"] === "error") {
-		alert("Account doesn't exist. Please sign up");
-		location.assign("/");
-	}
-	if (verification["status"] === "nomatch") {
-		alert("Email or password is incorrect. Try again");
-		location.assign("/");
-	}
-	if (verification["status"] === "verified") {
-		location.assign(`/quizSelection?email=${username}`);
-			
-}})}
-catch (error){
-	console.log(error)
-};
 
 // module.exports = { email };
