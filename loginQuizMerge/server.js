@@ -5,10 +5,30 @@ const mongoose = require("mongoose");
 const bodyParser = require('body-parser');
 const fs = require("fs");
 const cors = require("cors");
+var nodemailer = require('nodemailer');
+
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'ibmskillsbuildquiz@gmail.com',
+    pass: 'IBMCloud30'
+  }
+});
+
+
 
 var jsonParser = bodyParser.json()
 
 
+
+const courses = {
+  "AI":  'Getting Started with AI:  https://ole03.yourlearning.ibm.com/mod/scorm/player.php?a=473&currentorg=articulate_rise&scoid=2355&display=popup&mode=normal&lang=en \n Explore IBM Skills Build Area for AI: https://www.ibm.com/academic/topic/artificial-intelligence',
+  "CLOUD": 'Introduction to Cloud:  https://yl-ptech.skillsnetwork.site/courses/course-v1:IBMDeveloperSkillsNetwork+CC0101EN+v1 \n Explore IBM Skills Build Area for Cloud: https://www.ibm.com/academic/topic/cloud',
+  "DS" : 'Getting Started with Enterprise Data Science:  https://www.ibm.com/academic/topic/data-science \n Explore IBM Skills Build Area for Data Science: https://www.ibm.com/academic/topic/data-science',
+  "ENGI": 'IBM Design Thinking:  https://www.ibm.com/design/thinking/ \n Explore IBM Skills Build Area for Engineering: https://www.ibm.com/academic/topic/engineering',
+  "QTM": 'Introduction to Quantum Computing and Hardware: https://qiskit.org/learn/summer-school/introduction-to-quantum-computing-and-quantum-hardware-2020/ \n Explore IBM Skills Build Area for Quantum: https://www.ibm.com/academic/topic/quantum-computing',
+  "SEC": 'Getting Started with Threat Intelligence and Hunting: https://www.ibm.com/academic/topic/security \n Explore IBM Skills Build Area for Security: https://www.ibm.com/academic/topic/security'
+}
 
 app.set("view engine", "ejs");
 app.use(cors());
@@ -112,6 +132,32 @@ function hash(string) {
 
 app.get("/", (req, res) => {
   res.render("login.ejs");
+});
+
+app.post("/sendEmail", async (req, res) => {
+  let emailCourse = req.body;
+  let email = emailCourse['email'];
+  let courseName = emailCourse['course']
+  let course = courses[courseName];
+
+  var mailOptions = {
+    from: 'ibmskillsbuildquiz@gmail.com',
+    to: email,
+    subject: `IBM Skills Build ${course} Course Link`,
+    text: `Here is the link for the ${course} course: \n ${course}`
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      res.send("error");
+    } else {
+      res.send("success");
+    }
+  });
+
+
+
+  
 });
 
 app.get("/quizSelection", async (req, res) => {

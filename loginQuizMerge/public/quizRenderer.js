@@ -101,21 +101,33 @@ async function loadQuestion(questionNum) {
       const userBoom = await fetch(`https://ibm-skills-build-quiz.onrender.com/getRecord?email=${email}`,options);
       const userInfo = await userBoom.json();
 
+      let course = 0;
       if (userInfo === 404) {
         alert('User not found.');
       } else {
         if (quizData.title === "Artificial Intelligence") {
           userInfo.aiComplete = correct;
+          course = "AI";
         } else if (quizData.title === "IBM Cloud") {
           userInfo.cloudComplete = correct;
+          course = "CLOUD";
+          
         } else if (quizData.title === "Data Science") {
           userInfo.dsComplete = correct;
+          course = "DS";
+
         } else if (quizData.title === "Engineering") {
           userInfo.engiComplete = correct;
+          course = "ENGI";
+
         } else if (quizData.title === "Quantum") {
           userInfo.quantumComplete = correct;
+          course = "QTM";
+
         } else if (quizData.title === "Cyber Security") {
           userInfo.securityComplete = correct;
+          course = "SEC";
+
         }
   
         
@@ -134,6 +146,21 @@ async function loadQuestion(questionNum) {
   
         if (updateResp['status'] === 'complete') {
           
+          emailCourse = {"email" : email, "course": course}
+          const options3 = {
+            method: "POST",
+            body: JSON.stringify(emailCourse),
+            headers: { "Content-Type": "application/json" },
+          };
+          const resp = await sendRequest("https://ibm-skills-build-quiz.onrender.com/sendEmail", options3)
+
+          if (resp === "success") {
+            alert('Course link has been sent to your email.');
+          } else if (resp === "error") {
+            console.log("error sending email")
+          } else {
+            console.log("server error.");
+          }
 
         } else if (updateResp['status'] === 'failed') {
           alert('There has been an error updating your record.');
