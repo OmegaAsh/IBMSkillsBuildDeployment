@@ -65,16 +65,6 @@ const quizData = {
         ],
       },
       {
-        text: "",
-        type: "mc",
-        answers: [
-          {text: "", correct: true },
-          {text: "", correct: false },
-          {text: "", correct: false },
-          {text: "", correct: false },
-        ],
-      },
-      {
         text: "What makes Enterprise Design thinking different?",
         type: "mc",
         answers: [
