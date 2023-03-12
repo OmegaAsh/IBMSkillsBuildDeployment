@@ -1,105 +1,110 @@
 const quizData = {
-    title: "Quantum"
-  };
+  title: "Quantum Computing"
+};
 
-  const questions = [
-    {
-      text: "What do we call the pieces of information in a quantum computer?",
-      type: "mc",
-      answers: [
-        {text: "Bits", correct: false },
-        {text: "Bytes", correct: false },
-        {text: "Qubits", correct: true },
-        {text: "Qubytes", correct: false },
-      ],
-    },
-    {
-      text: "When the information is between 0 and 1 in a quantum computer, what do we call this?",
-      type: "mc",
-      answers: [
-        {text: "Same position", correct: false },
-        {text: "Different position", correct: false },
-        {text: "Superposition", correct: true },
-        {text: "Ordinary position", correct: false },
-      ],
-    },
-    {
-      text: "Quantum computers are very good at dealing with ...",
-      type: "mc",
-      answers: [
-        {text: "Certainity", correct: false },
-        {text: "Uncertainty", correct: true },
-        {text: "Reliability", correct: false },
-        {text: "Clarity", correct: false },
-      ],
-    },
-    {
-      text: "What does entanglement mean?",
-      type: "mc",
-      answers: [
-        {text: "Two particles are connected", correct: true },
-        {text: "Two particles are separate", correct: false },
-        {text: "Two particles are different", correct: false },
-        {text: "Two particles are independent", correct: false },
-      ],
-    },
-    {
-      text: "True of false: Quantum encryption keys can be hacked and broken into.",
-      type: "mc",
-      answers: [
-        {text: "False", correct: true },
-        {text: "True", correct: false },
-      ],
-    },
-    {
-      text: "Which company has a quantum computer that we can use through their website?",
-      type: "mc",
-      answers: [
-        {text: "Microsoft", correct: false },
-        {text: "IBM", correct: true },
-        {text: "Apple", correct: false },
-        {text: "Google", correct: false },
-      ],
-    },
-    {
-      text: "True or False. Quantum computers are powerful, but not reliable yet.",
-      type: "mc",
-      answers: [
-        {text: "True", correct: true },
-        {text: "False", correct: false },
-      ],
-    },
-    {
-      text: "In which year first quantum computer (2-qubit) was created?",
-      type: "mc",
-      answers: [
-        {text: "1998", correct: true },
-        {text: "2000", correct: false },
-        {text: "2001", correct: false },
-        {text: "2003", correct: false },
-      ],
-    },
-    {
-      text: "Who is the father of quantum computing?",
-      type: "mc",
-      answers: [
-        {text: "Isaac Chuang", correct: false },
-        {text: "Neil Gershenfeld", correct: false },
-        {text: "Philip Glass", correct: false },
-        {text: "David Deutsch", correct: true },
-      ],
-    },
-    {
-      text: "Generation of computers powered by levers and gears.",
-      type: "mc",
-      answers: [
-        {text: "First Gen", correct: false },
-        {text: "Pre Gen", correct: true },
-        {text: "Second Gen", correct: false },
-        {text: "All of the above", correct: false },
-      ],
-    }];
 
+const questions = [
+  {
+      text: "What is not true about qubits?",
+      type: "mc",
+      answers: [
+        {text: "Short for quantum bit", correct: false },
+        {text: "Physical carrier of quantum information", correct: false },
+        {text: "Its quantum state can be written in 2-D vectors", correct: false },
+        {text: "One qubit can take the value of 4 bits ", correct: true },
+      ],
+  },
+  {
+      text: "What materials is a physical type of qubit made from?",
+      type: "mc",
+      answers: [
+        {text: "Niobium", correct: false },
+        {text: "Aluminium", correct: false },
+        {text: "Silicon substrate", correct: false },
+        {text: "All of the above ", correct: true },
+      ],
+  },
+  {
+      text: "What does the h in the E=hf stand for?",
+      type: "mc",
+      answers: [
+        {text: "Planck’s constant ", correct: true },
+        {text: "Boltzmann’s constant", correct: false },
+        {text: "Herbert’s constant", correct: false },
+        {text: "Einstein’s constant", correct: false },
+      ],
+  },
+  {
+      text: "What frequency is a qubit targeted to be around?",
+      type: "mc",
+      answers: [
+        {text: "5 GHz", correct: true },
+        {text: "5 MHz", correct: false },
+        {text: "3 GHz", correct: false },
+        {text: "5 Hz", correct: false },
+      ],
+    },
+    {
+      text: "What is the simplest logic gate?",
+      type: "mc",
+      answers: [
+        {text: "NOT", correct: true },
+        {text: "XOR", correct: false },
+        {text: "OR", correct: false },
+        {text: "AND", correct: false },
+      ],
+    },
+    {
+      text: "What does the NOT gate do?",
+      type: "mc",
+      answers: [
+        {text: "Flips the 0 to a 1 or vice versa ", correct: true },
+        {text: "Adds two bits together", correct: false },
+        {text: "Chooses one bit or the other", correct: false },
+        {text: "Combines two bits together", correct: false },
+      ],
+    },
+    {
+      text: "Why is Quantum computing important?",
+      type: "mc",
+      answers: [
+        {text: "To solve complex problems", correct: false },
+        {text: "It’s computation power also scales exponentially as system size grows", correct: false },
+        {text: "Many problems can’t be solved on classical computer", correct: false },
+        {text: "All of the above ", correct: true },
+      ],
+    },
+    {
+      text: "Why is it important to keep the temperature cold in an IBM Quantum lab?",
+      type: "mc",
+      answers: [
+        {text: "To minimize ambient noise or heat that could excite superconducting qubit ", correct: true },
+        {text: "To save energy bills", correct: false },
+        {text: "So that the qubit does not react with any elements in the lab", correct: false },
+        {text: "Qubits can only exist in cold temperatures", correct: false },
+      ],
+    },
+    {
+      text: "What is an entangled state?",
+      type: "mc",
+      answers: [
+        {text: "States of a whole computer that do not correspond to any assignment of states of the individual qubits ", correct: true },
+        {text: "The process of untangling a knot", correct: false },
+        {text: "A type of physical deformation that occurs in metals", correct: false },
+        {text: "A term used in computer science to describe a type of software error", correct: false },
+      ],
+    },
+    {
+      text: "When was it discovered that quantum theory applies to bits and logic operations in a computer?",
+      type: "mc",
+      answers: [
+        {text: "Late 20th century", correct: true },
+        {text: "Late 19th century", correct: false },
+        {text: "Early 20th century", correct: false },
+        {text: "Early 21st century", correct: false },
+      ],
+    },
+  ];
     try{
       module.exports = { quizData, questions };
     } catch (error) {
