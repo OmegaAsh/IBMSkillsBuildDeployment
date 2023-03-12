@@ -12,6 +12,7 @@ let correct = 0;
 
 // import { email } from `login.js`;
 let email = sessionStorage.getItem("email") || null;
+let psw = sessionStorage.getItem("psw") || null;
 
 async function sendRequest(url, options = undefined) {
   let response = {};
@@ -286,7 +287,7 @@ startBtn.addEventListener("click", () => {
 });
 
 returnBtn.addEventListener("click", () => {
-  window.location = `/quizSelection?email=${email}`;
+  window.location = `/quizSelection?email=${email}&psw=${psw}`;
 });
 
 nextBtn.addEventListener("click", () => {

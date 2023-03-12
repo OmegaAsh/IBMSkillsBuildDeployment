@@ -1,5 +1,5 @@
 const quizData = {
-    title: "Cybersecurity"
+    title: "Cloud Computing"
   };
   
 

@@ -1,6 +1,7 @@
 // Functions for error handling
 // Displays an error dialog if an error occurs, or passes the response onward
 var email;
+var psw;
 function displayErrorOrPass(response) {
 	if (response.ok === false) {
 	    let title = "";
@@ -176,6 +177,7 @@ if (loginInfo) {
 		email = username;
 	
 		sessionStorage.setItem("email",email);
+		sessionStorage.setItem("psw", password);
 		
 		const login = {
 			"email": username,
