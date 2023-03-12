@@ -56,7 +56,7 @@ const questions = [
       ],
     },
     {
-      text: "A data analyst is reviewing an Excel spreadsheet from an insurance company. The customer data that she is analyzing is sorted by name, home address, policy number, etc. What type of data is she most likely working with",
+      text: "A data analyst is reviewing an Excel spreadsheet from an insurance company. The customer data that she is analyzing is sorted by name, home address, policy number, etc. What type of data is she most likely working with?",
       type: "mc",
       answers: [
         {text: "Structured data ", correct: true },

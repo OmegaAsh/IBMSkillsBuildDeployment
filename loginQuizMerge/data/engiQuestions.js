@@ -35,7 +35,7 @@ const quizData = {
         ],
       },
       {
-        text: "Who famously said “Everyone designs who devises courses of action aimed at changing existing situations into preferred ones.” ",
+        text: "Who famously said “Everyone designs who devises courses of action aimed at changing existing situations into preferred ones.",
         type: "mc",
         answers: [
           {text: "Herbert Simon ", correct: true },
@@ -75,7 +75,7 @@ const quizData = {
         ],
       },
       {
-        text: "What’s the Loop?",
+        text: "What is the Loop?",
         type: "mc",
         answers: [
           {text: "An infinity sign because the possibilities are infinite", correct: false },
