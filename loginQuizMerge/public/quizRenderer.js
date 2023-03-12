@@ -109,7 +109,7 @@ async function loadQuestion(questionNum) {
         if (quizData.title === "Artificial Intelligence") {
           userInfo.aiComplete = correct;
           course = "Artificial Intelligence";
-        } else if (quizData.title === "IBM Cloud") {
+        } else if (quizData.title === "Cloud Computing") {
           userInfo.cloudComplete = correct;
           course = "Cloud";
           
@@ -121,7 +121,7 @@ async function loadQuestion(questionNum) {
           userInfo.engiComplete = correct;
           course = "Engineering";
 
-        } else if (quizData.title === "Quantum") {
+        } else if (quizData.title === "Quantum Computing") {
           userInfo.quantumComplete = correct;
           course = "Quantum";
 
