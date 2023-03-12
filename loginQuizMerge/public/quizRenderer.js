@@ -92,7 +92,7 @@ async function loadQuestion(questionNum) {
       nextBtn.classList.add("hide");
       questionElement.classList.add("hide");
       answersContainer.classList.add("hide");
-      quizTitleElement.innerHTML = `Congrats! You passed and earned ${correct} tokens!`;
+      quizTitleElement.innerHTML = `Congrats! You passed and earned ${correct} tokens! Links to the full course on IBM Skills Build has been sent to your email!`;
 
       const options = {
         method: "GET",
