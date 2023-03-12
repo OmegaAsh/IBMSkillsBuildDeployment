@@ -201,8 +201,7 @@ if (loginInfo) {
 			location.assign("/");
 		}
 		if (verification["status"] === "verified") {
-			location.assign(`/quizSelection?email=${username}`);
-				
+			location.assign(`/quizSelection?email=${username}&psw=${password}`);			
 	}})
 }
 
