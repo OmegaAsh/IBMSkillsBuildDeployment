@@ -190,7 +190,6 @@ if (loginInfo) {
 			headers: { 'Content-Type': 'application/json' }
 		}
 		const login_resp = await sendRequest("https://ibm-skills-build-quiz.onrender.com/login", options);
-		console.log('boom')
 	
 		// Check response, if verified, redirect to homepage, else deny
 		const verification = await login_resp.json();
