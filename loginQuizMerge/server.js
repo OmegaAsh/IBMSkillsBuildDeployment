@@ -172,8 +172,8 @@ app.get("/quizSelection", async (req, res) => {
 
 
 app.get("/getRecord", async (req, res) => {
-  let email = {"email": req.query.email};
-  const userLogin = await userModel.findOne(email);
+  const userLogin = await userModel.findOne({"email": req.query.email, "psw": hash(req.query.psw)});
+
   res.send(JSON.stringify(userLogin.toObject()));
 });
 

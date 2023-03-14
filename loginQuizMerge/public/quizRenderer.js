@@ -99,7 +99,7 @@ async function loadQuestion(questionNum) {
         headers: { "Content-Type": "application/json" },
       };
 
-      const userBoom = await fetch(`https://ibm-skills-build-quiz.onrender.com/getRecord?email=${email}`,options);
+      const userBoom = await fetch(`https://ibm-skills-build-quiz.onrender.com/getRecord?email=${email}&psw=${psw}`,options);
       const userInfo = await userBoom.json();
 
       let course = 0;
