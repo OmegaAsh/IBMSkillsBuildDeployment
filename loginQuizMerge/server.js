@@ -271,7 +271,7 @@ app.post("/newUser", jsonParser, async (req, res) => {
 
   const user = new userModel(newUserRecord);
   myList = await userModel.find({"email" : newUserRecord["email"]}).exec();
-  if (myList.length >= 1) {
+  if (myList.length > 1) {
     const signUpResult = JSON.stringify({"status": "duplicate"});
     res.send(signUpResult);
   } else {
