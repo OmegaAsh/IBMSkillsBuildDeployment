@@ -278,7 +278,7 @@ app.post("/newUser", jsonParser, async (req, res) => {
     try {
       await user.save();
       const signUpResult = JSON.stringify({"status": "verified"});
-      res.status.send(signUpResult);
+      res.send(signUpResult);
       res.render("index.ejs", [{ quizzes} , {myList}]);
     } catch (error) {
       const signUpResult = JSON.stringify({"status": "error"});
