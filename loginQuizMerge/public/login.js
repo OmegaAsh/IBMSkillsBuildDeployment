@@ -132,7 +132,7 @@ if (signupInfo) {
 				headers: { 'Content-Type': 'application/json' }
 			};
 	
-			const new_user_resp = await sendRequest("https://ibm-skills-build-quiz.onrender.com/newUser", options);
+			const new_user_resp = await sendRequest("https://ibm-skills-build-quiz-7z0i.onrender.com/newUser", options);
 			const new_user = await new_user_resp.json();
 	
 			// check user data is handled correctly, if not ask user to retry
@@ -189,7 +189,7 @@ if (loginInfo) {
 			body: JSON.stringify(login),
 			headers: { 'Content-Type': 'application/json' }
 		}
-		const login_resp = await sendRequest("https://ibm-skills-build-quiz.onrender.com/login", options);
+		const login_resp = await sendRequest("https://ibm-skills-build-quiz-7z0i.onrender.com/login", options);
 	
 		// Check response, if verified, redirect to homepage, else deny
 		const verification = await login_resp.json();

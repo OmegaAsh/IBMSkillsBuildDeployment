@@ -99,7 +99,7 @@ async function loadQuestion(questionNum) {
         headers: { "Content-Type": "application/json" },
       };
 
-      const userBoom = await fetch(`https://ibm-skills-build-quiz.onrender.com/getRecord?email=${email}&psw=${psw}`,options);
+      const userBoom = await fetch(`https://ibm-skills-build-quiz-7z0i.onrender.com/getRecord?email=${email}&psw=${psw}`,options);
       const userInfo = await userBoom.json();
 
       let course = 0;
@@ -139,7 +139,7 @@ async function loadQuestion(questionNum) {
           headers: { "Content-Type": "application/json" },
         };
         const update_Response = await sendRequest(
-          "https://ibm-skills-build-quiz.onrender.com/updateScore",
+          "https://ibm-skills-build-quiz-7z0i.onrender.com/updateScore",
           options2
         );
         
@@ -153,7 +153,7 @@ async function loadQuestion(questionNum) {
             body: JSON.stringify(emailCourse),
             headers: { "Content-Type": "application/json" },
           };
-          const resp = await sendRequest("https://ibm-skills-build-quiz.onrender.com/sendEmail", options3)
+          const resp = await sendRequest("https://ibm-skills-build-quiz-7z0i.onrender.com/sendEmail", options3)
 
           if (resp === "success") {
             alert('Course link has been sent to your email.');
